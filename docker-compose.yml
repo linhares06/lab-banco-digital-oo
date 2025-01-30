@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  java-app:
+    build: .
+    volumes:
+      - ./src:/app  # Mount local src folder to /app inside container
+    working_dir: /app
+    stdin_open: true  # Keeps the stdin open
+    tty: true         # Allocates a pseudo-terminal
+    command: ["java", "-cp", "/bin", "Main"]
